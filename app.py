@@ -10,7 +10,7 @@ def hello():
 @app.route("/currencies")
 def getAllCurrencies():
     return {"currencies": exchange_rate_helper.getSupportedCurrencies()}
-
+print('body_love_fofy')
 @app.route("/rates")
 def getAllRates():
     return {"rates": exchange_rate_helper.getAllExchangeRates()}
