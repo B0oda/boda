@@ -2,7 +2,7 @@ from flask import Flask
 import exchange_rate_helper
 
 app = Flask(__name__)
-
+print("hello")
 @app.route("/")
 def hello():
     return {"message": "Hello World"}
