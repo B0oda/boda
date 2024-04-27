@@ -15,7 +15,7 @@ print('body_love_fofy')
 def getAllRates():
     return {"rates": exchange_rate_helper.getAllExchangeRates()}
 print('fares')
-
+print('fares')
 @app.route("/rate/<string:currency>")
 def getRatesForCurrency(currency):
     try:
