@@ -14,6 +14,7 @@ def getAllCurrencies():
 @app.route("/rates")
 def getAllRates():
     return {"rates": exchange_rate_helper.getAllExchangeRates()}
+print('fares')
 
 @app.route("/rate/<string:currency>")
 def getRatesForCurrency(currency):
