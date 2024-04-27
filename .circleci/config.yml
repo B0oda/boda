@@ -6,24 +6,23 @@ orbs:
 
 jobs:
   pull-and-test:
-  description: "Setup Django application and run tests"
-  executor: python/default
-  steps:
-    - checkout
-    - python/install-packages:
-        pkg-manager: pip
-    - run:
-        name: "Run tests"
-        command: pytest -v
+    description: "Setup Django application and run tests"
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+      - run:
+          name: "Run tests"
+          command: pytest -v
 
 workflows:
   deploy-docker-image:
-  jobs:
-    - pull-and-test
-    - azure-acr/build-and-push-image:
-        login-server-name: flaskdockerdemo.azurecr.io
-        registry-name: flaskdockerdemo
-        repo: flask-rates-api
-        requires:
-          - pull-and-test
-        
+    jobs:
+      - pull-and-test
+      - azure-acr/build-and-push-image:
+          login-server-name: flaskdockerdemo.azurecr.io
+          registry-name: flaskdockerdemo
+          repo: flask-rates-api
+          requires:
+            - pull-and-test
